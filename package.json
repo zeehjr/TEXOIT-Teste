@@ -13,12 +13,15 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "jest": "^24.9.0",
     "nodemon": "^2.0.1",
     "sucrase": "^3.10.1",
     "supertest": "^4.0.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
   }
 }
