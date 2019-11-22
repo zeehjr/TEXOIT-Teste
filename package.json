@@ -1,0 +1,24 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "sucrase-node src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.1",
+    "sucrase": "^3.10.1",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
