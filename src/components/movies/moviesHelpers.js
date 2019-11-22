@@ -81,37 +81,34 @@ const getFlattenedProducersIntervals = data => {
   return flattenedProducers
 }
 
-export const getProducerMinMaxWinInterval = database => {
-  const data = database.filter(movie => movie.winner === 'yes')
+export const getProducersMinMaxWinInterval = movies => {
+  const data = movies.filter(movie => movie.winner === 'yes')
 
   const flattenedIntervals = getFlattenedProducersIntervals(data).filter(
     interval => interval.interval > 0
   )
 
-  const result = flattenedIntervals.reduce((prev, current, index) => {
+  const result = flattenedIntervals.reduce((prev, current, index, arr) => {
     if (prev == null) {
       return {
-        min: current,
-        max: current
+        min: [current],
+        max: [current]
       }
     }
 
     let min = prev.min
     let max = prev.max
 
-    if (min.interval > current.interval) {
-      min = current
+    if (min[0].interval > current.interval) {
+      min = arr.filter(movie => movie.interval === current.interval)
     }
 
-    if (max.interval < current.interval) {
-      max = current
+    if (max[0].interval < current.interval) {
+      max = arr.filter(movie => movie.interval === current.interval)
     }
 
     return { min, max }
   }, null)
 
-  return {
-    min: [result.min],
-    max: [result.max]
-  }
+  return result
 }
