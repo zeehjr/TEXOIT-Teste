@@ -12,7 +12,7 @@ const fileExistsAsync = Bluebird.promisify(fs.exists)
 
 export const mapCSVStringToObjectsArray = csv => {
   // Quebra CSV em linhas
-  const csvLines = csv.split(/\r\n/)
+  const csvLines = csv.split(/\r?\n/)
 
   // Pega o header, que é a definição das colunas, e joga em um array para uso posterior
   const header = csvLines[0].split(';')
