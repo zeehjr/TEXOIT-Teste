@@ -1,6 +1,6 @@
-import { getProducerMinMaxWinInterval } from './moviesHelpers'
+import { getProducersMinMaxWinInterval } from './moviesHelpers'
 import database from '../../database'
 
-export const getProducerMinMaxWinInterval = () => {
-  return getProducerMinMaxWinInterval(database)
+export const getProducersMinMaxWinInterval = () => {
+  return getProducersMinMaxWinInterval(database)
 }
